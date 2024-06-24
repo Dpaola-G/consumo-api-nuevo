@@ -126,7 +126,7 @@ class _Maquina1PageState extends State<Maquina1Page> {
                         children: [
                           
                           Text('Nombre: ${item["nombre"]}'),
-                          // Agrega aquí otros campos según la estructura de tus datos
+                          
                         ],
                       ),
                     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'maquina1.dart'; // Importación de la página Maquina1Page
-import 'seguimiento.dart'; // Importación de la página SeguimientoPage
+import 'seguimiento.dart'; 
 
 class HomePrincipal extends StatefulWidget {
   const HomePrincipal({super.key});
@@ -17,7 +17,7 @@ class _HomePrincipalState extends State<HomePrincipal> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Coffee App'),
-        backgroundColor: Color.fromARGB(255, 0, 0, 116), // Color de fondo de la barra de aplicación
+        backgroundColor: Color.fromARGB(255, 0, 0, 116), 
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -25,7 +25,7 @@ class _HomePrincipalState extends State<HomePrincipal> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Seleccione la maquina a usar en el proceso'), // Texto instructivo para el usuario
+              Text('Seleccione la maquina a usar en el proceso'), 
               SizedBox(height: 8.0), // Espacio entre el texto y los botones de máquina
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
