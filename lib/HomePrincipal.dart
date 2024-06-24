@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'maquina1.dart';
-import 'seguimiento.dart';
+import 'maquina1.dart'; // Importación de la página Maquina1Page
+import 'seguimiento.dart'; // Importación de la página SeguimientoPage
 
 class HomePrincipal extends StatefulWidget {
   const HomePrincipal({super.key});
@@ -10,14 +10,14 @@ class HomePrincipal extends StatefulWidget {
 }
 
 class _HomePrincipalState extends State<HomePrincipal> {
-  String? _selectedMaquina;
+  String? _selectedMaquina; // Estado para almacenar la máquina seleccionada
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Coffee App'),
-       backgroundColor: Color.fromARGB(255, 0, 0, 116),
+        backgroundColor: Color.fromARGB(255, 0, 0, 116), // Color de fondo de la barra de aplicación
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -25,27 +25,28 @@ class _HomePrincipalState extends State<HomePrincipal> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Seleccione la maquina a usar en el proceso'),
-              SizedBox(height: 8.0),
+              Text('Seleccione la maquina a usar en el proceso'), // Texto instructivo para el usuario
+              SizedBox(height: 8.0), // Espacio entre el texto y los botones de máquina
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(5, (index) {
                   int machineNumber = index + 1;
                   return ElevatedButton(
                     onPressed: () {
+                      setState(() {
+                        _selectedMaquina = 'Maquina $machineNumber'; // Actualiza el estado con la máquina seleccionada
+                      });
                       if (machineNumber == 1) {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Maquina1Page()),
+                          MaterialPageRoute(builder: (context) => Maquina1Page()), // Navega a la página Maquina1Page al hacer clic en la máquina 1
                         );
-                      } else {
-                        setState(() => _selectedMaquina = 'Maquina $machineNumber');
                       }
                     },
-                    child: Text('$machineNumber'),
+                    child: Text('$machineNumber'), // Texto del botón con el número de máquina
                     style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(),
-                      backgroundColor: _selectedMaquina == 'Maquina $machineNumber' ? Colors.lightBlue : null, //color de los botones
+                      shape: CircleBorder(), // Forma del botón (círculo)
+                      backgroundColor: _selectedMaquina == 'Maquina $machineNumber' ? Colors.lightBlue : null, // Color de fondo del botón
                     ),
                   );
                 }),
@@ -55,10 +56,10 @@ class _HomePrincipalState extends State<HomePrincipal> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SeguimientoPage()),
+                    MaterialPageRoute(builder: (context) => SeguimientoPage()), // Navega a la página SeguimientoPage al hacer clic en el botón de seguimiento
                   );
                 },
-                child: Text('Seguimiento'),
+                child: Text('Seguimiento'), // Texto del botón de seguimiento
               ),
             ],
           ),
